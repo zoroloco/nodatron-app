@@ -9,18 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var angleSlider : UISlider!
-    @IBOutlet var angleLabel  : UILabel!
+    @IBOutlet var upDownSlider : UISlider!
+    @IBOutlet var upDownLabel  : UILabel!
+    @IBOutlet var leftRightSlider : UISlider!
+    @IBOutlet var leftRightLabel  : UILabel!
+
     
     var tcpClient : TcpClient = TcpClient(host: "99.155.61.20",port: 8170);
     
     
-    @IBAction func angleChanged(sender : AnyObject) {
-        angleLabel.text = "\(Int(angleSlider.value)) degrees";
+    @IBAction func upDown(sender : AnyObject) {
+        upDownLabel.text = "\(Int(upDownSlider.value)) degrees";
      
-        let sliderValue = Int(angleSlider.value);
-        NSLog(String(sliderValue));
-        tcpClient.sendData(String(sliderValue));
+        let upDownSliderValue = Int(upDownSlider.value);
+        NSLog(String(upDownSliderValue));
+        let data = String(upDownSliderValue);
+        tcpClient.sendData("9"+data);
+    }
+    
+    @IBAction func leftRight(sender : AnyObject){
+        leftRightLabel.text = "\(Int(leftRightSlider.value)) degrees";
+        
+        let leftRightSliderValue = Int(leftRightSlider.value);
+        NSLog(String(leftRightSliderValue));
+        let data = String(leftRightSliderValue);
+        tcpClient.sendData("A"+data);
     }
     
     override func viewDidLoad() {

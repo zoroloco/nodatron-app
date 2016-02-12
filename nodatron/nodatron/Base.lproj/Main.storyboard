@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaz-gr-he6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaz-gr-he6">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,14 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="5Q4-5i-rTs">
-                                <rect key="frame" x="18" y="177" width="364" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" value="90" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="5Q4-5i-rTs" userLabel="upDownSlider">
+                                <rect key="frame" x="18" y="285" width="364" height="31"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="-1.571"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="angleChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tNd-mm-6iK"/>
+                                    <action selector="upDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ODD-hB-tp2"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3N-9B-qrW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3N-9B-qrW" userLabel="upDownLabel">
                                 <rect key="frame" x="20" y="215" width="221" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="CBW-LY-YAd"/>
+                                    <constraint firstAttribute="width" constant="221" id="fhV-iU-teg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="q8w-rB-JAP" userLabel="leftRightSlider">
+                                <rect key="frame" x="17" y="493" width="364" height="31"/>
+                                <connections>
+                                    <action selector="leftRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rWe-L2-hrQ"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aek-cj-uZ8" userLabel="leftRightLabel">
+                                <rect key="frame" x="90" y="536" width="221" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="6Ev-92-Kda"/>
+                                    <constraint firstAttribute="height" constant="32" id="xXC-VC-iU4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -34,8 +59,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="cZH-t6-ou4" userLabel="Remote"/>
                     <connections>
-                        <outlet property="angleLabel" destination="Y3N-9B-qrW" id="NWb-lh-k0m"/>
-                        <outlet property="angleSlider" destination="5Q4-5i-rTs" id="bxH-Kd-fsM"/>
+                        <outlet property="leftRightLabel" destination="aek-cj-uZ8" id="2rT-VX-OcK"/>
+                        <outlet property="leftRightSlider" destination="q8w-rB-JAP" id="0Wq-2X-tjn"/>
+                        <outlet property="upDownLabel" destination="Y3N-9B-qrW" id="MHV-G9-xWj"/>
+                        <outlet property="upDownSlider" destination="5Q4-5i-rTs" id="dbr-aI-j6W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
