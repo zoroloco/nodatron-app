@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let upDownSliderValue = Int(upDownSlider.value);
         NSLog(String(upDownSliderValue));
         let data = String(upDownSliderValue);
-        tcpClient.sendData("9"+data);
+        tcpClient.sendData("10:"+data);
     }
     
     @IBAction func leftRight(sender : AnyObject){
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         let leftRightSliderValue = Int(leftRightSlider.value);
         NSLog(String(leftRightSliderValue));
         let data = String(leftRightSliderValue);
-        tcpClient.sendData("A"+data);
+        tcpClient.sendData("9:"+data);
     }
     
     override func viewDidLoad() {
