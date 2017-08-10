@@ -19,7 +19,7 @@ class TcpClient {
         self.port = port;
     }
     
-    func sendData(data : String){
+    func sendData(data : String) -> Int{
         
         let textCString = data.cStringUsingEncoding(NSASCIIStringEncoding)
         let textLength  = Int(data.lengthOfBytesUsingEncoding(NSASCIIStringEncoding))
@@ -46,9 +46,12 @@ class TcpClient {
             // failed the send
             //responseFromServer = "send failure: \(sendResult)"
             NSLog("Failed to send:"+data);
+            return -1;
         }
         
         //NSLog(responseFromServer);
+        
+        return 0;
     }
     
    

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var leftRightLabel  : UILabel!
 
     
-    var tcpClient : TcpClient = TcpClient(host: "99.155.61.20",port: 8170);
+    var tcpClient : TcpClient = TcpClient(host: "107.137.233.168",port: 8170);
     
     
     @IBAction func upDown(sender : AnyObject) {
